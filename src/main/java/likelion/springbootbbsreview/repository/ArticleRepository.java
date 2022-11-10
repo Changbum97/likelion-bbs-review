@@ -1,6 +1,6 @@
-package likelion.springbootbbspreview.repository;
+package likelion.springbootbbsreview.repository;
 
-import likelion.springbootbbspreview.domain.entity.Article;
+import likelion.springbootbbsreview.domain.entity.Article;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ArticleRepository extends JpaRepository<Article, Long> {

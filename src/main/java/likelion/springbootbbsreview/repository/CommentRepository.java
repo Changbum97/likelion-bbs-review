@@ -1,6 +1,6 @@
-package likelion.springbootbbspreview.repository;
+package likelion.springbootbbsreview.repository;
 
-import likelion.springbootbbspreview.domain.entity.Comment;
+import likelion.springbootbbsreview.domain.entity.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

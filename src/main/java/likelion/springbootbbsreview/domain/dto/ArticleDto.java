@@ -1,6 +1,6 @@
-package likelion.springbootbbspreview.domain.dto;
+package likelion.springbootbbsreview.domain.dto;
 
-import likelion.springbootbbspreview.domain.entity.Article;
+import likelion.springbootbbsreview.domain.entity.Article;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

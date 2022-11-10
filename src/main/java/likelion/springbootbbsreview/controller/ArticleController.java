@@ -1,11 +1,11 @@
-package likelion.springbootbbspreview.controller;
+package likelion.springbootbbsreview.controller;
 
-import likelion.springbootbbspreview.domain.dto.ArticleDto;
-import likelion.springbootbbspreview.domain.dto.CommentDto;
-import likelion.springbootbbspreview.domain.entity.Article;
-import likelion.springbootbbspreview.domain.entity.Comment;
-import likelion.springbootbbspreview.repository.ArticleRepository;
-import likelion.springbootbbspreview.repository.CommentRepository;
+import likelion.springbootbbsreview.domain.dto.ArticleDto;
+import likelion.springbootbbsreview.domain.dto.CommentDto;
+import likelion.springbootbbsreview.domain.entity.Article;
+import likelion.springbootbbsreview.domain.entity.Comment;
+import likelion.springbootbbsreview.repository.ArticleRepository;
+import likelion.springbootbbsreview.repository.CommentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

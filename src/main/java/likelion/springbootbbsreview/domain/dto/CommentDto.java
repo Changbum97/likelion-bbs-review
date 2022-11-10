@@ -1,9 +1,7 @@
-package likelion.springbootbbspreview.domain.dto;
+package likelion.springbootbbsreview.domain.dto;
 
-import likelion.springbootbbspreview.domain.entity.Comment;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.ToString;
 
 @Getter
 @AllArgsConstructor
