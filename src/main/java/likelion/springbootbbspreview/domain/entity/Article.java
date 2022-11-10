@@ -1,5 +1,6 @@
 package likelion.springbootbbspreview.domain.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @Table(name = "Article2")
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
 public class Article {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +20,4 @@ public class Article {
     private String title;
     private String content;
 
-    public Article(String title, String content) {
-        this.title = title;
-        this.content = content;
-    }
 }

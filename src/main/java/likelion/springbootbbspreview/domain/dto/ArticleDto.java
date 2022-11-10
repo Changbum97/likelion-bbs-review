@@ -6,11 +6,12 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class CreateArticleDto {
+public class ArticleDto {
+    private Long id;
     private String title;
     private String content;
 
     public Article toEntity() {
-        return new Article(title, content);
+        return new Article(id, title, content);
     }
 }

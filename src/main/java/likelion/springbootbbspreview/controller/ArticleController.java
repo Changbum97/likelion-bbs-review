@@ -1,15 +1,12 @@
 package likelion.springbootbbspreview.controller;
 
-import likelion.springbootbbspreview.domain.dto.CreateArticleDto;
+import likelion.springbootbbspreview.domain.dto.ArticleDto;
 import likelion.springbootbbspreview.domain.entity.Article;
 import likelion.springbootbbspreview.repository.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -36,7 +33,7 @@ public class ArticleController {
     }
 
     @PostMapping("")
-    public String createArticle(CreateArticleDto dto) {
+    public String createArticle(ArticleDto dto) {
         Article newArticle = dto.toEntity();
         articleRepository.save(newArticle);
         log.info("save {}", newArticle);
@@ -62,5 +59,23 @@ public class ArticleController {
         log.info("findAll : {}개", articles.size());
         model.addAttribute("articles", articles);
         return "articles/list";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editForm(@PathVariable Long id, Model model) {
+        Optional<Article> optionalArticle = articleRepository.findById(id);
+        if(optionalArticle.isEmpty()) {
+            return "error";
+        }
+
+        model.addAttribute("article", optionalArticle.get());
+        return "articles/edit";
+    }
+
+    @PutMapping("")
+    public String editArticle(ArticleDto dto) {
+        articleRepository.save(dto.toEntity());
+        log.info("edit : {}", dto.toEntity());
+        return "redirect:/articles/" + dto.getId();
     }
 }
