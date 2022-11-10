@@ -102,4 +102,13 @@ public class ArticleController {
 
         return "redirect:/articles/" + id;
     }
+
+    @GetMapping("/comment/{id}/delete")
+    public String deleteComment(@PathVariable Long id) {
+        log.info("deleteById comment : {}", id);
+        Long articleId = commentRepository.findById(id).get().getArticleId();
+        commentRepository.deleteById(id);
+
+        return "redirect:/articles/" + articleId;
+    }
 }
