@@ -78,4 +78,11 @@ public class ArticleController {
         log.info("edit : {}", dto.toEntity());
         return "redirect:/articles/" + dto.getId();
     }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable Long id) {
+        articleRepository.deleteById(id);
+        log.info("deleteById : {}", id);
+        return "redirect:/articles/list";
+    }
 }

@@ -10,12 +10,17 @@
         <label for="content" class="form-label">내용 : </label>
         <textarea rows="3" name="content">{{content}}</textarea>
         <br/>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">수정</button>
+    </form>
+    <form action="/articles/{{id}}" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit" class="btn btn-danger">삭제</button>
     </form>
 {{/article}}
 {{>layouts/footer}}
 <style>
     .btn {
+        width: 100px;
         margin: 10px;
     }
 </style>
