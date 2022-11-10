@@ -5,7 +5,15 @@
         <input type="text" name="title"> <br>
         <label for="content" class="form-label">내용 : </label>
         <input type="text" name="content">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <br/>
+        <button type="submit" class="btn btn-primary">등록</button>
+        <a href="/articles/list" class="btn btn-success">홈으로</a>
     </div>
 </form>
 {{>layouts/footer}}
+<style>
+    .btn {
+        width: 70px;
+        margin: 10px;
+    }
+</style>

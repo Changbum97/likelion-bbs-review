@@ -8,5 +8,14 @@
             <h4 class="card-text">{{content}}</h4>
         </div>
     </div>
+    <br/>
+    <a href="/articles/edit/{{id}}" class="btn btn-primary">수정</a>
+    <a href="/articles/list" class="btn btn-success">홈으로</a>
 {{/article}}
 {{>layouts/footer}}
+<style>
+    .btn{
+        width: 80px;
+        margin-right: 20px;
+    }
+</style>
