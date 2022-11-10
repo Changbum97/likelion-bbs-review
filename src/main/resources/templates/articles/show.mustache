@@ -11,11 +11,25 @@
     <br/>
     <a href="/articles/edit/{{id}}" class="btn btn-primary">수정</a>
     <a href="/articles/list" class="btn btn-success">홈으로</a>
+    <br/><br/>
+    <form action="/articles/{{id}}/comment" method="post">
+        <div class="mb-3">
+            <label for="comment" class="form-label">댓글 : </label>
+            <input type="text" name="comment">
+            <button type="submit" class="btn btn-warning">댓글 등록</button>
+        </div>
+    </form>
+    <h3>댓글 리스트</h3>
+    {{#comments}}
+        <ul>
+            <li>{{comment}}</li>
+        </ul>
+    {{/comments}}
 {{/article}}
 {{>layouts/footer}}
 <style>
     .btn{
-        width: 80px;
+        width: 100px;
         margin-right: 20px;
     }
 </style>

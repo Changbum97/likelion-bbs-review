@@ -1,8 +1,11 @@
 package likelion.springbootbbspreview.controller;
 
 import likelion.springbootbbspreview.domain.dto.ArticleDto;
+import likelion.springbootbbspreview.domain.dto.CommentDto;
 import likelion.springbootbbspreview.domain.entity.Article;
+import likelion.springbootbbspreview.domain.entity.Comment;
 import likelion.springbootbbspreview.repository.ArticleRepository;
+import likelion.springbootbbspreview.repository.CommentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,9 +20,11 @@ import java.util.Optional;
 public class ArticleController {
 
     private final ArticleRepository articleRepository;
+    private final CommentRepository commentRepository;
 
-    public ArticleController(ArticleRepository articleRepository) {
+    public ArticleController(ArticleRepository articleRepository, CommentRepository commentRepository) {
         this.articleRepository = articleRepository;
+        this.commentRepository = commentRepository;
     }
 
     @GetMapping(value = {"", "/"})
@@ -50,6 +55,9 @@ public class ArticleController {
         Article findArticle = optionalArticle.get();
         log.info("findById {} : {}", id, findArticle);
         model.addAttribute("article", findArticle);
+
+        List<Comment> comments = commentRepository.findByArticleId(id);
+        model.addAttribute("comments", comments);
         return "articles/show";
     }
 
@@ -84,5 +92,14 @@ public class ArticleController {
         articleRepository.deleteById(id);
         log.info("deleteById : {}", id);
         return "redirect:/articles/list";
+    }
+
+    @PostMapping("/{id}/comment")
+    public String saveComment(@PathVariable Long id, CommentDto dto) {
+        Comment newComment = new Comment(id, dto.getComment());
+        log.info("save comment : {}", newComment.toString());
+        commentRepository.save(newComment);
+
+        return "redirect:/articles/" + id;
     }
 }
