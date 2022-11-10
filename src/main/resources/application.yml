@@ -1,24 +1,24 @@
-# ?? ?? ?? ??
+# 화면 한글 깨짐 방지
 server:
   servlet:
     encoding:
       force-response: true
 
-# DB ?? ??
+# DB 접속 설정
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/likelion-db
     username: root
     password: root1234
-  # JPA ??
+  # JPA 설정
   jpa:
     show-sql: true
     database-platform: org.hibernate.dialect.MySQL8Dialect
     database: mysql
     hibernate:
       ddl-auto: validate
-  # PUT, DELETE ???? ??
+  # PUT, DELETE 되게 해줌
   mvc:
     hiddenmethod:
       filter:
